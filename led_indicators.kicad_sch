@@ -1,0 +1,245 @@
+(kicad_sch (version 20231120) (generator eeschema)
+
+  (paper "A4")
+
+  (title_block
+    (title "RTL8367N LED Indicators - Standalone Mode")
+    (date "2024")
+    (rev "1.0")
+    (comment 1 "Link/Act LEDs para los 5 puertos")
+    (comment 2 "Puertos 0,1,2: Active Low (Pull-Up 4.7k) | Puertos 3,4: Active High (Pull-Down 4.7k)")
+    (comment 3 "Resistencia serie: 470 ohm | Sin Gigabit, solo Link/Act")
+  )
+
+  (lib_symbols
+    (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "R" (at 1.524 0 90) (effects (font (size 1.27 1.27))))
+      (property "Value" "R" (at -1.524 0 90) (effects (font (size 1.27 1.27))))
+      (property "Datasheet" "~" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+      (symbol "R_0_1"
+        (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.2032) (type default)) (fill (type none)))
+      )
+      (symbol "R_1_1"
+        (pin passive line (at 0 3.81 270) (length 1.27) (name "~" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+        (pin passive line (at 0 -3.81 90) (length 1.27) (name "~" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "Device:LED" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "D" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+      (property "Value" "LED" (at 0 -2.54 0) (effects (font (size 1.27 1.27))))
+      (property "Datasheet" "~" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+      (symbol "LED_0_1"
+        (polyline (pts (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254) (type default)) (fill (type none)))
+        (polyline (pts (xy -1.27 0) (xy 1.27 0)) (stroke (width 0.254) (type default)) (fill (type none)))
+        (polyline (pts (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type default)) (fill (type outline)))
+        (polyline (pts (xy 0.762 -1.016) (xy 1.524 -1.778) (xy 1.016 -1.778) (xy 1.524 -1.778) (xy 1.524 -1.27)) (stroke (width 0.254) (type default)) (fill (type none)))
+        (polyline (pts (xy 0 -1.016) (xy 0.762 -1.778) (xy 0.254 -1.778) (xy 0.762 -1.778) (xy 0.762 -1.27)) (stroke (width 0.254) (type default)) (fill (type none)))
+      )
+      (symbol "LED_1_1"
+        (pin passive line (at -2.54 0 0) (length 1.27) (name "K" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+        (pin passive line (at 2.54 0 180) (length 1.27) (name "A" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "power:GND" (power) (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (at 0 -6.35 0) (effects (font (size 1.27 1.27)) hide))
+      (property "Value" "GND" (at 0 -3.81 0) (effects (font (size 1.27 1.27))))
+      (symbol "GND_0_1"
+        (polyline (pts (xy -1.27 -2.54) (xy 1.27 -2.54)) (stroke (width 0) (type default)) (fill (type none)))
+        (polyline (pts (xy -0.762 -3.302) (xy 0.762 -3.302)) (stroke (width 0) (type default)) (fill (type none)))
+        (polyline (pts (xy 0 0) (xy 0 -2.54)) (stroke (width 0) (type default)) (fill (type none)))
+      )
+      (symbol "GND_1_1"
+        (pin power_in line (at 0 0 270) (length 0) (name "~" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "power:+3.3V" (power) (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (at 0 3.81 0) (effects (font (size 1.27 1.27)) hide))
+      (property "Value" "+3.3V" (at 0 3.81 0) (effects (font (size 1.27 1.27))))
+      (symbol "+3.3V_0_1"
+        (polyline (pts (xy -0.762 1.27) (xy 0 2.54) (xy 0.762 1.27)) (stroke (width 0) (type default)) (fill (type none)))
+        (polyline (pts (xy 0 0) (xy 0 1.27)) (stroke (width 0) (type default)) (fill (type none)))
+      )
+      (symbol "+3.3V_1_1"
+        (pin power_in line (at 0 0 270) (length 0) (name "~" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+      )
+    )
+  )
+
+  ;; =========================================
+  ;; PUERTO 0 - Pin 75 - P0LED0 - Active Low
+  ;; =========================================
+  (text "P0 - Pin 75 - P0LED0 - Active Low (Pull-Up)" (at 3 3 0)
+    (effects (font (size 1.5 1.5) bold)))
+
+  (symbol (lib_id "power:+3.3V") (at 8 7 0) (unit 1)
+    (property "Reference" "#PWR01" (at 8 7 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "+3.3V" (at 8 7 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 8 10 0) (unit 1)
+    (property "Reference" "R1" (at 9.5 10 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "4.7kΩ" (at 9.5 8.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 14 13 90) (unit 1)
+    (property "Reference" "R2" (at 14 11.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "470Ω" (at 14 10 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:LED") (at 20 13 0) (unit 1)
+    (property "Reference" "D1" (at 20 15.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "LED_P0" (at 20 10.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "power:GND") (at 25 13 0) (unit 1)
+    (property "Reference" "#PWR02" (at 25 13 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "GND" (at 25 13 0) (effects (font (size 1.27 1.27)))))
+
+  (wire (pts (xy 8 9.27) (xy 8 13)))
+  (wire (pts (xy 8 13) (xy 12.27 13)))
+  (wire (pts (xy 15.73 13) (xy 17.73 13)))
+  (wire (pts (xy 22.27 13) (xy 25 13)))
+
+  (label "P0LED0_PIN75" (at 5 13 0)
+    (effects (font (size 1.27 1.27))))
+  (wire (pts (xy 5 13) (xy 8 13)))
+
+  ;; =========================================
+  ;; PUERTO 1 - Pin 72 - P1LED0 - Active Low
+  ;; =========================================
+  (text "P1 - Pin 72 - P1LED0 - Active Low (Pull-Up)" (at 3 18 0)
+    (effects (font (size 1.5 1.5) bold)))
+
+  (symbol (lib_id "power:+3.3V") (at 8 22 0) (unit 1)
+    (property "Reference" "#PWR03" (at 8 22 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "+3.3V" (at 8 22 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 8 25 0) (unit 1)
+    (property "Reference" "R3" (at 9.5 25 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "4.7kΩ" (at 9.5 23.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 14 28 90) (unit 1)
+    (property "Reference" "R4" (at 14 26.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "470Ω" (at 14 25 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:LED") (at 20 28 0) (unit 1)
+    (property "Reference" "D2" (at 20 30.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "LED_P1" (at 20 25.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "power:GND") (at 25 28 0) (unit 1)
+    (property "Reference" "#PWR04" (at 25 28 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "GND" (at 25 28 0) (effects (font (size 1.27 1.27)))))
+
+  (wire (pts (xy 8 24.27) (xy 8 28)))
+  (wire (pts (xy 8 28) (xy 12.27 28)))
+  (wire (pts (xy 15.73 28) (xy 17.73 28)))
+  (wire (pts (xy 22.27 28) (xy 25 28)))
+
+  (label "P1LED0_PIN72" (at 5 28 0)
+    (effects (font (size 1.27 1.27))))
+  (wire (pts (xy 5 28) (xy 8 28)))
+
+  ;; =========================================
+  ;; PUERTO 2 - Pin 70 - P2LED0 - Active Low
+  ;; =========================================
+  (text "P2 - Pin 70 - P2LED0 - Active Low (Pull-Up)" (at 3 33 0)
+    (effects (font (size 1.5 1.5) bold)))
+
+  (symbol (lib_id "power:+3.3V") (at 8 37 0) (unit 1)
+    (property "Reference" "#PWR05" (at 8 37 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "+3.3V" (at 8 37 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 8 40 0) (unit 1)
+    (property "Reference" "R5" (at 9.5 40 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "4.7kΩ" (at 9.5 38.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 14 43 90) (unit 1)
+    (property "Reference" "R6" (at 14 41.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "470Ω" (at 14 40 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:LED") (at 20 43 0) (unit 1)
+    (property "Reference" "D3" (at 20 45.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "LED_P2" (at 20 40.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "power:GND") (at 25 43 0) (unit 1)
+    (property "Reference" "#PWR06" (at 25 43 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "GND" (at 25 43 0) (effects (font (size 1.27 1.27)))))
+
+  (wire (pts (xy 8 39.27) (xy 8 43)))
+  (wire (pts (xy 8 43) (xy 12.27 43)))
+  (wire (pts (xy 15.73 43) (xy 17.73 43)))
+  (wire (pts (xy 22.27 43) (xy 25 43)))
+
+  (label "P2LED0_PIN70" (at 5 43 0)
+    (effects (font (size 1.27 1.27))))
+  (wire (pts (xy 5 43) (xy 8 43)))
+
+  ;; ============================================
+  ;; PUERTO 3 - Pin 68 - P3LED0 - Active High
+  ;; ============================================
+  (text "P3 - Pin 68 - P3LED0 - Active High (Pull-Down)" (at 3 48 0)
+    (effects (font (size 1.5 1.5) bold)))
+
+  (symbol (lib_id "power:+3.3V") (at 25 55 0) (unit 1)
+    (property "Reference" "#PWR07" (at 25 55 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "+3.3V" (at 25 55 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:LED") (at 20 55 0) (unit 1)
+    (property "Reference" "D4" (at 20 57.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "LED_P3" (at 20 52.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 14 55 90) (unit 1)
+    (property "Reference" "R7" (at 14 53.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "470Ω" (at 14 52 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 8 58 0) (unit 1)
+    (property "Reference" "R8" (at 9.5 58 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "4.7kΩ" (at 9.5 56.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "power:GND") (at 8 62 0) (unit 1)
+    (property "Reference" "#PWR08" (at 8 62 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "GND" (at 8 62 0) (effects (font (size 1.27 1.27)))))
+
+  (wire (pts (xy 8 55) (xy 8 56.27)))
+  (wire (pts (xy 8 59.73) (xy 8 62)))
+  (wire (pts (xy 8 55) (xy 12.27 55)))
+  (wire (pts (xy 15.73 55) (xy 17.73 55)))
+  (wire (pts (xy 22.27 55) (xy 25 55)))
+
+  (label "P3LED0_PIN68" (at 5 55 0)
+    (effects (font (size 1.27 1.27))))
+  (wire (pts (xy 5 55) (xy 8 55)))
+
+  ;; ============================================
+  ;; PUERTO 4 - Pin 65 - P4LED0 - Active High
+  ;; ============================================
+  (text "P4 - Pin 65 - P4LED0 - Active High (Pull-Down)" (at 3 65 0)
+    (effects (font (size 1.5 1.5) bold)))
+
+  (symbol (lib_id "power:+3.3V") (at 25 72 0) (unit 1)
+    (property "Reference" "#PWR09" (at 25 72 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "+3.3V" (at 25 72 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:LED") (at 20 72 0) (unit 1)
+    (property "Reference" "D5" (at 20 74.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "LED_P4" (at 20 69.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 14 72 90) (unit 1)
+    (property "Reference" "R9" (at 14 70.5 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "470Ω" (at 14 69 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "Device:R") (at 8 75 0) (unit 1)
+    (property "Reference" "R10" (at 9.5 75 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "4.7kΩ" (at 9.5 73.5 0) (effects (font (size 1.27 1.27)))))
+
+  (symbol (lib_id "power:GND") (at 8 79 0) (unit 1)
+    (property "Reference" "#PWR10" (at 8 79 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "GND" (at 8 79 0) (effects (font (size 1.27 1.27)))))
+
+  (wire (pts (xy 8 72) (xy 8 73.27)))
+  (wire (pts (xy 8 76.73) (xy 8 79)))
+  (wire (pts (xy 8 72) (xy 12.27 72)))
+  (wire (pts (xy 15.73 72) (xy 17.73 72)))
+  (wire (pts (xy 22.27 72) (xy 25 72)))
+
+  (label "P4LED0_PIN65" (at 5 72 0)
+    (effects (font (size 1.27 1.27))))
+  (wire (pts (xy 5 72) (xy 8 72)))
+
+)
